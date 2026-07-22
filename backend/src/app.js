@@ -30,10 +30,12 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 app.use("/uploads", express.static(path.join(__dirname, "..", "uploads")));
 
-app.get("/api/health", (req, res) => {
-  res.json({ status: "ok" });
+app.get("/", (req, res) => {
+  res.json({
+    success: true,
+    message: "Portfolio Backend Running Successfully 🚀"
+  });
 });
-
 app.use("/api/auth", authRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/projects", projectRoutes);
